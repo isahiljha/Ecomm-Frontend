@@ -27,6 +27,7 @@ import ProductReviews from "./pages/admin-view/product-reviews";
 import AdminPayments from "./pages/admin-view/payments";
 import About from "./pages/shopping-view/about";
 import Contact from "./pages/shopping-view/contact";
+import { CgSpinnerTwoAlt } from "react-icons/cg";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -39,15 +40,27 @@ function App() {
     dispatch(checkAuth(token));
   }, [dispatch]);
 
-  
+
   // const user = "user";
   // const isAuthenticated = true;
   // const isLoading = false;
 
-  if (isLoading) return <Skeleton className="w-[800] bg-black h-[600px]" />;
+  if (isLoading) return (<>
+    <div className="w-screen h-screen bg-zinc-800 flex justify-center items-center">
+      <div className=" h-full flex flex-col justify-between py-7">
+        <div> </div>
+        <div className="relative">
+          <CgSpinnerTwoAlt className="h-36 w-36 animate-spin text-white duration-500" />
+          <img src="/logo-favicon.png" className="absolute top-12 left-12 max-w-11" />
+          <h3 className="text-5xl absolute -left-32 font-bold animate-pulse"> <span className="text-blue-300">Style</span><span className="text-pink-400">Clothez</span><span className="text-green-200">Mart</span></h3>
+        </div>
+        <div className="text-xl text-white animate-pulse tracking-tight mt-7">Please Wait....</div>
+      </div>
+    </div>;
+  </>)
 
   console.log(isLoading, user);
- console.log(import.meta.env.VITE_BASEURL_FOR_SERVER)
+  console.log(import.meta.env.VITE_BASEURL_FOR_SERVER)
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       <Routes>

@@ -26,6 +26,7 @@ import { Label } from "../ui/label";
 import { GiRolledCloth } from "react-icons/gi";
 import { FaRegUser, FaUser } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
+import Marquee from "react-fast-marquee";
 
 
 
@@ -151,7 +152,21 @@ function ShoppingHeader() {
 
   return (<>
 
-    <div className=" z-40 w-full">
+    <div className="z-40 w-full">
+      <Marquee className="bg-gradient-to-r from-blue-200 via-pink-300 to-green-200 py-2 text-sm" speed={70} >
+        <div className="flex items-center gap-7 ms-7">
+          <div>Get Extra 5% Off On Prepaid Orders. 💸</div>
+          <div>Free Shipping All Over India 🚚</div>
+          <div>Best Quality Clothes 👗</div>
+          <div>Featured Top Brands 🌟</div>
+        </div>
+        <div className="flex items-center gap-7 ms-7">
+          <div>Get Extra 5% Off On Prepaid Orders. 💸</div>
+          <div>Free Shipping All Over India 🚚</div>
+          <div>Best Quality Clothes 👗</div>
+          <div>Featured Top Brands 🌟</div>
+        </div>
+      </Marquee>
       <header className="bg-background px-7">
         <div className="flex h-24 items-center justify-between px-4 md:px-6">
           <div className="hidden lg:block" onClick={() => navigate("/shop/search")}>
